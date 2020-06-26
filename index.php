@@ -49,12 +49,12 @@ $p=htmlentities($_GET['p']);
       </div>
       <div class="navbar-collapse collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li><a href="halaman-index.html">HOME</a></li>
-          <li><a href="halaman-tentang.html">TENTANG PLC</a></li>
-          <li><a href="halaman-detail.html">DETAIL KEGIATAN</a></li>
-          <li><a href="halaman-pendaftaran.html">PENDAFTARAN</a></li>
-          <li><a href="halaman-callforpaper.html">CALL FOR PAPER</a></li>
-          <li><a href="halaman-paralelsession.html">PARALEL SESSION</a></li>
+          <li><a href="index.php?p=utama">HOME</a></li>
+          <li><a href="index.php?p=tentang">TENTANG PLC</a></li>
+          <li><a href="index.php?p=detail">DETAIL KEGIATAN</a></li>
+          <li><a href="index.php?p=pendaftaran">PENDAFTARAN</a></li>
+          <li><a href="index.php?p=callforpaper">CALL FOR PAPER</a></li>
+          <li><a href="index.php?p=paralelsession">PARALEL SESSION</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -65,8 +65,20 @@ $p=htmlentities($_GET['p']);
   $cek=strlen($p);
   if ($cek>30||!file_exists($file)||empty($p)) {
     include ("utama.php");
-  } else {
-    include ($file);
+  } else if ($p == "utama") {
+    include("utama.php");
+  } else if ($p == "tentang") {
+    include("tentang.php");
+  } else if ($p == "detail") {
+    include("detail.php");
+  } else if ($p == "callforpaper") {
+    include("callforpaper.php");
+  } else if ($p == "pendaftaran") {
+    include("pendaftaran.php");
+  } else if ($p == "paralelsession") {
+    include("paralelsession.php");
+  } else if ($p == "") {
+    include("index.php");
   }
   ?>
 
